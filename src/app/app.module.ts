@@ -12,14 +12,13 @@ import { HeroService } from './hero.service'
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent,
-    HeroService
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [ HeroService, MessageService ],
+  providers: [ HeroService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
