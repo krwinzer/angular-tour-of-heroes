@@ -11,10 +11,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class HeroService {
 
+  private heroesUrl = 'api/heroes';
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService) {}
 
   getHeroes(): Observable<Hero[]> {
     this.messageService.add('HeroService: fetched heroes');
@@ -24,6 +25,10 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
     return of(HEROES.find(hero => hero.id === id));
+  }
+
+  private log(message: string) {
+    this.messageService.add('HeroService: ' + message);
   }
 
 }
